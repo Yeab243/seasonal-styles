@@ -4,6 +4,12 @@ $("document").ready(function(){
         var season = $(this).attr("href");//contents of href attribute of this element
         alert(season);
 
+        myPages(season);
+    });
+});
+        
+
+        function myPages(season){
         switch(season){
         case "Spring": 
             $("html").css("background-color", "#2B7129");
@@ -45,25 +51,14 @@ $("document").ready(function(){
             $("header h3").text("Winter is the time for comfort, for good food and warmth!");
         break ;
         
-        case "Winter": 
-        $("html").css("background-color", "#005393");
-
-        $("#wear").attr("src", "images/winter-wear.jpg");
-
-        $("#logo").attr("src", "images/winter.gif");
-
-        $("header h3").text("Winter is the time for comfort, for good food and warmth!");
-        break ;
-        
         case "Default": 
-        $("html").css("background-color", "purple");
+            $("html").css("background-color", "#800080");
 
-        $("#wear").attr("src", "images/four-seasons-wear.jpg");
+            $("#wear").attr("src", "images/four-seasons-wear.jpg");
 
-        $("#logo").attr("src", "images/four-seasons.gif");
+            $("#logo").attr("src", "images/four-seasons.gif");
 
-        $("header h3").text("Choose what is more comfortable to you!");
+            $("header h3").text("Choose what is more comfortable to you!");
         break ;
         }
-    });
-});
+    };

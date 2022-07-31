@@ -98,14 +98,39 @@
             e.preventDefault();//stop default submission
 			var datetext = $('input[name=dateField]').val();//grab data from textbox
 			var formDate = new Date(datetext);//create a date from form input
-			var today = new Date();
+		        // var today = new Date();
 			
-			if(formDate > today)
-			{
-				alert(datetext + " is in the future!");
-			}else{
-				alert(datetext + " is in the past!");
-			}
+                formDate.setFullYear("2022");
+
+            let seasonGaps = {
+                Spring: [ new Date("March 01, 22"), new Date("May 31, 22") ],
+                Summer: [ new Date("June 01, 22"), new Date("Augest 31, 22") ],
+                Fall: [ new Date("September 01, 22"), new Date("November 30, 22") ],
+                Winter: [ new Date("December 01, 21"), new Date("February 28, 22") ],
+            };
+
+
+            switch ( true ) {
+                case seasonGaps.Spring[0] <= formDate && 
+                     formDate<= seasonGaps.Spring[1]:
+                    myPages("Spring");
+                break;
+                case seasonGaps.Summer[0] <= formDate && 
+                     formDate <= seasonGaps.Summer[1]:
+                    myPages("Summer");
+                break;
+                case seasonGaps.Fall[0] <= formDate && 
+                     formDate <= seasonGaps.Fall[1]:
+                    myPages("Fall");
+                break;
+                case seasonGaps .Winter[0] <= formDate && 
+                     formDate <= seasonGaps .Winter[1]:
+                    myPages("Winter");
+                break;
+
+            };
+
+            
 		});
 	});
     </script>
